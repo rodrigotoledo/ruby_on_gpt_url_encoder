@@ -1,0 +1,7 @@
+<h1>About URL: <%= @url.original_url %></h1>
+<%= line_chart Url.where(original_url: @url.original_url, created_at: Date.today.beginning_of_month..Date.today.end_of_month).group_by_day(:created_at).sum(:clicked) %>
+<div>
+  Go to URL: <%=link_to @url.original_url, redirect_to_original_url_path(@url.code) %><br />
+  Clicked: <%=@url.clicked%><br />
+  When: <%=l @url.created_at, format: :short %>
+</div>

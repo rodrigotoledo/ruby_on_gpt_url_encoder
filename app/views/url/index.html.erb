@@ -1,0 +1,7 @@
+<h1>Last 10 URLs</h1>
+<% @urls.each do |url| %>
+<div>
+  About URL: <%=link_to url.original_url, url_path(url.code) %>
+</div>
+<hr />
+<% end %>
